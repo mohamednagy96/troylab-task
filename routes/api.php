@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group([
-    'prefix' => 'v1',
     "namespace" => 'Api\V1',
 ], function () {
 
@@ -15,6 +14,7 @@ Route::group([
      */
     Route::group(["namespace" => "Auth"], function () {
         Route::post('login', 'AuthController@login');
-        Route::post('register', 'AuthController@register');
     });
+
+    Route::resource('students' , 'StudentController')->middleware('auth:admin-api');
 });

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Student;
+namespace App\Http\Requests\Api\Student;
 
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentUpdateRequest extends FormRequest
+class StudentStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class StudentUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth('admin')->check();
+        return true;
     }
 
     /**
@@ -23,22 +24,20 @@ class StudentUpdateRequest extends FormRequest
      */
     public function rules()
     {
-
-         $id = $this->student->id;
-
         return [
             'name'=>['required' ,'max:191' ,'string '],
             'parent_number'=>['required' ,'max:191' ,'string'],
-            'email'=>['required' ,"unique:students,email,{$id}",'max:191' ,'string '],
+            'email'=>['required' ,"unique:students,email",'max:191' ,'string '],
             'mobile'=>['required' ,'max:191' ,'string '],
             'is_active'=>['nullable' ,'boolean '],
-            'code'=>['required' ,'max:191' ,'string',"unique:students,code,{$id}"],
+            'code'=>['required' ,'max:191' ,'string ' ,"unique:students,code"],
             'dob'=>['required' ,'string '],
             'gender' => 'required|in:male,female',
             'join_date'=>['required' ,'string '],
             'level' => 'required|string',
             'school_id' => 'required|exists:schools,id'
         ];
+
     }
 
     protected function prepareForValidation()

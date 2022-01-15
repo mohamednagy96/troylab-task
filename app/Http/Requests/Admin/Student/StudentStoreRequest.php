@@ -27,10 +27,10 @@ class StudentStoreRequest extends FormRequest
             return [
                 'name'=>['required' ,'max:191' ,'string '],
                 'parent_number'=>['required' ,'max:191' ,'string'],
-                'email'=>['required' ,"unique:users,email",'max:191' ,'string '],
+                'email'=>['required' ,"unique:students,email",'max:191' ,'string '],
                 'mobile'=>['required' ,'max:191' ,'string '],
                 'is_active'=>['nullable' ,'boolean '],
-                'code'=>['required' ,'max:191' ,'string '],
+                'code'=>['required' ,'max:191' ,'string' , 'unique:students,code'],
                 'dob'=>['required' ,'string '],
                 'gender' => 'required|in:male,female',
                 'join_date'=>['required' ,'string '],

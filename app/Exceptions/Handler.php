@@ -60,40 +60,40 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($request->isJson() || ($request->headers->get('accept') == "application/json")) {
+        // if ($request->isJson() || ($request->headers->get('accept') == "application/json")) {
 
-            if ($exception instanceof ErrorException) {
-                return $this->serverError();
-            }
+        //     if ($exception instanceof ErrorException) {
+        //         return $this->serverError();
+        //     }
 
-            if ($exception instanceof ModelNotFoundException) {
-                return $this->notFound();
-            }
+        //     if ($exception instanceof ModelNotFoundException) {
+        //         return $this->notFound();
+        //     }
 
-            if ($exception instanceof MethodNotAllowedHttpException) {
-                return $this->notFound();
-            }
+        //     if ($exception instanceof MethodNotAllowedHttpException) {
+        //         return $this->notFound();
+        //     }
 
-            if ($exception instanceof AuthenticationException) {
-                return $this->unauthorized();
-            }
+        //     if ($exception instanceof AuthenticationException) {
+        //         return $this->unauthorized();
+        //     }
 
-            if ($exception instanceof AuthorizationException) {
-                return $this->forbidden();
-            }
+        //     if ($exception instanceof AuthorizationException) {
+        //         return $this->forbidden();
+        //     }
 
-            if ($exception instanceof ValidationException) {
-                return $this->invalidRequest(Arr::flatten($exception->validator->getMessageBag()->toArray()));
-            }
+        //     if ($exception instanceof ValidationException) {
+        //         return $this->invalidRequest(Arr::flatten($exception->validator->getMessageBag()->toArray()));
+        //     }
 
-            return $this->serverError();
-        }
+        //     return $this->serverError();
+        // }
 
-        if ($exception instanceof \Illuminate\Database\QueryException){ 
-            if($exception->errorInfo[0] == '23000' && str_contains($exception->errorInfo[2], 'Cannot delete or update a parent row') ){
-                return back()->with(['error' => 'sorry you cant delete this ... because it is use in system']);
-            }
-        }
+        // if ($exception instanceof \Illuminate\Database\QueryException){ 
+        //     if($exception->errorInfo[0] == '23000' && str_contains($exception->errorInfo[2], 'Cannot delete or update a parent row') ){
+        //         return back()->with(['error' => 'sorry you cant delete this ... because it is use in system']);
+        //     }
+        // }
 
         return parent::render($request, $exception);
     }

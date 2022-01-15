@@ -20,5 +20,7 @@ class SchoolTableSeeder extends Seeder
         School::factory()
         ->has(Student::factory()->count(3))
         ->create();
+
+        // School::factory()->count(20)->create();
     }
 }

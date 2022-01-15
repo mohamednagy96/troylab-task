@@ -7,6 +7,18 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+/**
+ * @OA\Info(
+ *      version="1.0",
+ *      title="7sety")
+ *     @OA\SecurityScheme(
+ *       securityScheme="Bearer",
+ *       type="http",
+ *       scheme="bearer",
+ *       bearerFormat="JWT"
+ *)
+*/
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

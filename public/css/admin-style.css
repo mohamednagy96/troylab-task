@@ -1,0 +1,4 @@
+td .dropdown .dropdown-menu {
+    left: unset;
+    right: 50px;
+}

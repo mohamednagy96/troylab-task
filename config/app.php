@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:8000'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Africa/Cairo',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,7 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*
@@ -229,7 +229,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-    ],
+        ],
 
 ];

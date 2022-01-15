@@ -1,0 +1,12 @@
+{
+  "verfication.confirm" : "confirm email  is sent" ,
+  "verfication.pending" : "please confirm your email" ,
+  "subsctiption.not_subscribe" : "You are not subscribe",
+  "Please Pay This Lecture" : "Please Pay This Lecture",
+  "you are already subscribed" : "You Are Already subscribed",
+  "must you pay this lecture .. your payment is pending" : "Must You Pay This Lecture .. Your Payment is Pending",
+  "must you pay this lecture .. your payment is expired" : "Must You Pay This Lecture .. Your Payment is Expired"
+
+
+
+}

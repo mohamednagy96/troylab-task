@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'users',
         'passwords' => 'users',
     ],
 
@@ -31,12 +31,18 @@ return [
     | users are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
-    | Supported: "session"
+    | Supported: "session", "token"
     |
     */
 
     'guards' => [
-        'web' => [
+        'student' => [
+            'driver' => 'passport',
+            'provider' => 'students',
+            'hash' => false,
+        ],
+
+        'admin' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -60,15 +66,14 @@ return [
     */
 
     'providers' => [
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory;
+    
     protected $fillable = ['title' , 'description' , 'level_count' , 'is_active'] ;
 
     public function students(){

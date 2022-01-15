@@ -2,7 +2,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route("admin.home") }}" class="brand-link">
-      <span class="brand-text font-weight-light">7sety</span>
+      <span class="brand-text font-weight-light">Troylab</span>
     </a>
 
     <!-- Sidebar -->

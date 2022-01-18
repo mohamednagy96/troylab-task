@@ -23,6 +23,9 @@ class SchoolRepository implements SchoolRepositoryInterface
         if(isset($data['is_active'])){
             $q->where('is_active',$data['is_active']);
         }
+        if(isset($data['order_by'])){
+            $q->orderby('id',$data['order_by']);
+        }
        if($paginate)
         {
             $q = $q->paginate();

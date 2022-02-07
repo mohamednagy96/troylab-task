@@ -18,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Models\School' => 'App\Policies\SchoolPolicy',
     ];
 
     /**
@@ -31,11 +32,11 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::routes();
 
-        Gate::before(function ($user, $ability) {
-            if(auth()->guard('admin')->check()){
-                return $user->hasRole('Super Admin') ? true : null;
-            }
+        // Gate::before(function ($user, $ability) {
+        //     if(auth()->guard('admin')->check()){
+        //         return $user->hasRole('Super Admin') ? true : null;
+        //     }
 
-        });
+        // });
     }
 }
